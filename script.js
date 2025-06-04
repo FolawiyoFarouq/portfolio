@@ -53,3 +53,9 @@ updateTime();
   document.addEventListener("DOMContentLoaded", () => {
     if (titles.length) setTimeout(type, delayBetween);
   });
+
+
+//   const toggleBtn = document.getElementById("toggleDarkMode");
+// toggleBtn.addEventListener("change", () => {
+//   document.body.classList.toggle("dark-mode");
+// });
