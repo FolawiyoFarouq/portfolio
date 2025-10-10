@@ -1,20 +1,30 @@
+/* ===== General Styles ===== */
 * {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f4;
-  color: #333;
-  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
 }
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Page Fade In Effect ===== */
+body.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+}
+/* ===== Header & Nav ===== */
 header {
   text-align: center;
   margin-bottom: 40px;
@@ -29,22 +39,45 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   color: #0077cc;
+  transition: color 0.3s ease;
 }
 
-a {
-  text-decoration: none;
+nav a:hover {
+  color: #ff6b6b;
 }
 
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ff6b6b;
+}
+
+/* ===== Sections ===== */
 section {
-  margin-bottom: 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
   font-size: 0.9rem;
+  opacity: 0.8;
 }
 
+/* ===== Scroll to Top ===== */
 #scrollTopBtn {
   position: fixed;
   bottom: 20px;
@@ -58,36 +91,33 @@ footer {
   color: white;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #scrollTopBtn:hover {
   background-color: #555;
 }
 
+/* ===== Dark Mode ===== */
 .dark-mode {
-  background-color: #121212;
+  background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
   color: #f1f1f1;
 }
 
-.dark-mode a {
+.dark-mode section {
+  background: rgba(34, 34, 34, 0.6);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode nav a {
   color: #90cdf4;
 }
 
-
-/* typewriter effect */
-#typewriter::after {
-  content: "|";
-  animation: blink 0.7s infinite;
+.dark-mode nav a.active {
+  color: #ffb347;
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-
-/* Top bar containing timer and toggle */
+/* ===== Top Bar ===== */
 .top-bar {
   position: fixed;
   top: 10px;
@@ -99,7 +129,7 @@ footer {
   font-size: 14px;
 }
 
-/* Toggle switch styling */
+/* ===== Toggle Switch ===== */
 .switch {
   position: relative;
   display: inline-block;
@@ -145,10 +175,45 @@ input:checked + .slider::before {
   transform: translateX(24px);
 }
 
-/* Rounded toggle */
 .slider.round {
   border-radius: 34px;
 }
+
 .slider.round::before {
   border-radius: 50%;
+}
+
+/* ===== Page Loader ===== */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #f4f7ff, #e3eafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+body.dark-mode #loader {
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #4a6cf7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+body.dark-mode .spinner {
+  border-top: 5px solid #a9b7ff;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
