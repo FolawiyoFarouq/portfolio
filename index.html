@@ -4,47 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Folawiyo Farouq</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- ===== Page Loader ===== -->
-    <div id="loader">
-        <div class="spinner"></div>
-    </div>
-  <header>
-    <h1>Hi, I'm Folawiyo Farouq</h1>
-    <p><span id="typewriter">Web Developer | Software Engineer | Learner</span></p>
-  </header>
+  <!-- Loader -->
+  <div id="loader"><div class="spinner"></div></div>
 
-  <!-- Top bar -->
+  <header>
   <div class="top-bar">
-    <p id="timeNow"></p>
-    <label class="switch">
-      <input type="checkbox" id="toggleDarkMode">
-      <span class="slider round"></span>
-    </label>
+    <button id="hamburger" class="hamburger" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <h1 class="logo">Hi, I'm <span>Folawiyo Farouq</span></h1>
+
+    <div class="theme-toggle">
+      <i id="themeIcon" class="fa-solid fa-sun"></i>
+    </div>
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="active">Home</a>
+  <nav id="navMenu" class="nav-closed">
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
+</header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Folawiyo Farouq, once again, and I'm a passionate web developer with a strong foundation in software engineering and AI based in Lagos, Nigeria.</p>
-    <p>I successfully completed the ALX Software Engineering Programme, where I built skills in programming, problem-solving and full-stack development. I also recently completed the ALX AI Starter Kit, which introduced me to the fundamentals of artificial intelligence and its real-world applications.</p>
-    <p>My current focus is on front-end development using HTML, CSS, JavaScript and React. I'm also learning Tailwind CSS to enhance my design workflow, and I plan to learn more on React next.</p>
-    <p>Outside of coding, I enjoy reading tech blogs, listening to music, watching movies and exploring new ideas around AI and automation.</p>
+
+
+  <main>
+    <section id="intro">
+    <h2 id="typewriter"></h2>
   </section>
 
-  <button id="scrollTopBtn" title="Go to top">Go to top</button>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi, I'm Folawiyo Farouq, a passionate web developer with a strong foundation in software engineering and AI based in Lagos, Nigeria.</p>
+      <p>I completed the ALX Software Engineering Programme and recently the ALX AI Starter Kit, gaining experience in programming and AI fundamentals.</p>
+      <p>My focus is on front-end development using HTML, CSS, JavaScript, and React. I'm learning Tailwind CSS and exploring React more deeply.</p>
+      <p>Outside coding, I enjoy reading tech blogs, music, movies, and exploring AI and automation ideas.</p>
+    </section>
+  </main>
+
+  <button id="scrollTopBtn" title="Go to top">↑</button>
 
   <footer>
+    <div class="socials">
+      <a href="https://github.com/FolawiyoFarouq" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/FolawiyoFarouq" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/farouq-folawiyo-757884258" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:folawiyofarouq@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
     <p>&copy; 2025 Folawiyo Farouq. All rights reserved.</p>
   </footer>
+
 
   <script src="script.js"></script>
 </body>
